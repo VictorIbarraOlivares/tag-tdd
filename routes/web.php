@@ -7,5 +7,5 @@ Route::get('/', function () {
     return view('welcome', compact('tags'));
 });
 
-Route::post('tags', [App\Http\Controllers\TagController::class, 'store']);
+Route::post('tags', [App\Http\Controllers\TagController::class, 'store'])->name('tags.store');
 Route::delete('tags/{tag}', [App\Http\Controllers\TagController::class, 'destroy']);
