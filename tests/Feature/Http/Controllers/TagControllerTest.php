@@ -5,6 +5,7 @@ namespace Tests\Feature\Http\Controllers;
 use App\Models\Tag;
 use Tests\TestCase;
 use Illuminate\Support\Str;
+use Illuminate\Http\Response;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -39,10 +40,10 @@ class TagControllerTest extends TestCase
      */
     public function test_validate_name_field_has_a_value_when_create_a_new_tag($formInput, $formInputValue)
     {
-        $response = $this->post( route('tags.store', [
+        $response = $this->post(route('tags.store', [
             $formInput => $formInputValue
         ]));
-
+        $response->assertStatus(Response::HTTP_FOUND);
         $response->assertSessionHasErrors($formInput);
     }
 
