@@ -31,4 +31,10 @@ class TagControllerTest extends TestCase
         ->assertRedirect('/');
         $this->assertDatabaseMissing('tags', ['name' => $tag->name]);
     }
+
+    public function test_validate_name_field_has_a_value_when_create_a_new_tag()
+    {
+        $this->post('tags', ['name' => ''])
+        ->assertSessionHasErrors('name');
+    }
 }
