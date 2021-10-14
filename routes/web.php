@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::post('tags', [App\Http\Controllers\TagController::class, 'store']);
+Route::delete('tags/{tag}', [App\Http\Controllers\TagController::class, 'destroy']);
