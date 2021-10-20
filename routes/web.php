@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $tags = App\Models\Tag::get();
+    $tags = App\Models\Tag::all();
     return view('welcome', compact('tags'));
 });
 

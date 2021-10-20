@@ -38,7 +38,7 @@ class TagControllerTest extends TestCase
      * @test
      * @dataProvider nameInputValidation
      */
-    public function test_validate_name_field_has_a_value_when_create_a_new_tag($formInput, $formInputValue)
+    public function test_validate_name_field_when_create_a_new_tag($formInput, $formInputValue)
     {
         $response = $this->post(route('tags.store', [
             $formInput => $formInputValue
