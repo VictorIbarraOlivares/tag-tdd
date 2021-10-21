@@ -10,7 +10,7 @@ class TagController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|alpha'
+            'name' => 'required|string'
         ]);
         Tag::create($request->all());
         return redirect('/');

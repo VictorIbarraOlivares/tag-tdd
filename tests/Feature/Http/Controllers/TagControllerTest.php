@@ -18,11 +18,11 @@ class TagControllerTest extends TestCase
         $this->withoutExceptionHandling();
 
         $this->post('tags', [
-            'name' => 'PHP'
+            'name' => 'Proyecto PHP'
         ])
         ->assertRedirect('/');
 
-        $this->assertDatabaseHas('tags', ['name' => 'PHP']);
+        $this->assertDatabaseHas('tags', ['name' => 'Proyecto PHP']);
     }
 
     public function test_destroy()
@@ -50,8 +50,7 @@ class TagControllerTest extends TestCase
     public function nameInputValidation()
     {
         return [
-            'Name is required' => ['name', ''],
-            'Name is string' => ['name', 123],
+            'Name is required' => ['name', '']
         ];
     }
 }

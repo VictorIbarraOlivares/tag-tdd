@@ -10,6 +10,13 @@
     </head>
     <body class="bg-gray-200 py-10">
         <div class="max-w-lg bg-white mx-auto p-5 rounded shadow">
+            @if ($errors->any())
+                <ul class="list-none p-4 mb-4 bg-red-100 text-red-500">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            @endif
             <form action="{{ route('tags.store') }}" method="POST" class="flex mb-4">
                 @csrf
                 <input type="text" name="name" class="rounded-l bg-gray-200 w-full outline-none" placeholder="Nueva etiqueta">
@@ -21,6 +28,9 @@
                     <tr>
                         <td class="border px-4 py-2">
                             {{ $tag->name }}
+                        </td>
+                        <td class="border px-4 py-2">
+                            {{ $tag->slug }}
                         </td>
                         <td class=" px-4 py-2">
                             <form action="tags/{{ $tag->id }}" method="POST">

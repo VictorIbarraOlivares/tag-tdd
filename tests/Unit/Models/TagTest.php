@@ -2,17 +2,15 @@
 
 namespace Tests\Unit\Models;
 
+use App\Models\Tag;
 use PHPUnit\Framework\TestCase;
 
 class TagTest extends TestCase
 {
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    public function test_slug()
     {
-        $this->assertTrue(true);
+        $tag = new Tag;
+        $tag->name = 'Proyecto PHP';
+        $this->assertEquals('proyecto-php', $tag->slug);
     }
 }
